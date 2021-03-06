@@ -2,10 +2,7 @@ package main;
 
 import com.sun.istack.internal.Nullable;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Monster;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -73,6 +70,9 @@ public class WorldGuanMain extends JavaPlugin  implements Listener{
                 if (entity instanceof Monster) {
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 2));
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 40, 0));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 2));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 40, 2));
+                    Monster monster = (Monster) entity;
                 }
             }
         }
@@ -83,6 +83,8 @@ public class WorldGuanMain extends JavaPlugin  implements Listener{
                 if (entity instanceof Monster) {
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 2));
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 40, 0));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 2));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 40, 2));
                 }
             }
         }
@@ -93,6 +95,8 @@ public class WorldGuanMain extends JavaPlugin  implements Listener{
                 if (entity instanceof Monster) {
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 2));
                     entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 40, 0));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 2));
+                    entity.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 40, 2));
                 }
             }
         }
@@ -103,7 +107,6 @@ public class WorldGuanMain extends JavaPlugin  implements Listener{
         if (playerBool) {
             HumanEntity crafter = event.getWhoClicked();
             Set<String> crafterTags = crafter.getScoreboardTags();
-
             if (crafterTags.contains("power")) {
                 crafter.sendMessage("당신은 힘캐여서 능지가 딸려 제작을 할 수 없습니다..");
                 event.setCancelled(true);
